@@ -23,13 +23,18 @@ for row in csv_file_object:
 	else:
 		row[5] = float(row[5])
 
+	if row[10] == "":
+		row[10] = 0.0
+	else:
+		row[10] = 1.0
+
 	data.append(row)
 	count_row += 1
 
 features = []
 data = np.array(data)
 
-features = data[:, [4, 5]].astype(np.float)
+features = data[:, [4, 5, 10]].astype(np.float)
 output = data[:, 1]
 
 clf = GaussianNB()
@@ -59,7 +64,12 @@ for row in test_file_object:
 	else:
 		row[4] = float(row[4])
 
-	prediction_file_object.writerow([row[0], clf.predict([[row[3], row[4]]])[0]])
+	if row[9] == "":
+		row[9] = 0.0
+	else:
+		row[9] = 1.0
+
+	prediction_file_object.writerow([row[0], clf.predict([[row[3], row[4], row[9]]])[0]])
 
 test_file.close()
 prediction_file.close()
