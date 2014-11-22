@@ -9,7 +9,7 @@ count_row = 0
 
 for row in csv_file_object:
 	if row[4] == "female":
-		row[4] = 1.0
+		row[4] = 10.0
 	else:
 		row[4] = 0.0
 
@@ -26,7 +26,7 @@ for row in csv_file_object:
 	if row[10] == "":
 		row[10] = 0.0
 	else:
-		row[10] = 1.0
+		row[10] = 10.0
 
 	if row[6] == "":
 		row[6] = 0.0
@@ -55,7 +55,7 @@ prediction_file_object.writerow(["PassengerId", "Survived"])
 
 for row in test_file_object:
 	if row[3] == "female":
-		row[3] = 1.0
+		row[3] = 10.0
 	else:
 		row[3] = 0.0
 
@@ -72,7 +72,7 @@ for row in test_file_object:
 	if row[9] == "":
 		row[9] = 0.0
 	else:
-		row[9] = 1.0
+		row[9] = 10.0
 
 	if row[5] == "":
 		row[5] = 0.0
